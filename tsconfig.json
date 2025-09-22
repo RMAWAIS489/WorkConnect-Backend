@@ -1,0 +1,19 @@
+{
+   "compilerOptions": {
+     "module": "Node16",                  // Node.js ke saath compatibility ensure karega
+     "target": "ESNext",                 // Latest JavaScript syntax support karega
+     "moduleResolution": "NodeNext",     // ECMAScript Modules (ESM) ke imports ke liye
+     "esModuleInterop": true,            // CommonJS modules ke saath compatibility
+     "resolveJsonModule": true,          // JSON files ko import karne dega
+     "outDir": "./dist",                 // Compiled files ke liye output directory
+     "rootDir": "./src",                 // Source files ki root directory
+     "strict": true,                     // TypeScript ke strict checks enable karega
+     "skipLibCheck": true,               // Library type checking ko skip karega
+     "experimentalDecorators": true,     // TypeScript decorators ke liye
+     "emitDecoratorMetadata": true       // Metadata emit karne ke liye
+   },
+   "include": ["src/**/*.ts"],           // Sirf `src` folder ke andar wali `.ts` files ko include karega
+   "exclude": ["node_modules"]           // `node_modules` ko exclude karega
+ }
+ 
+ 
