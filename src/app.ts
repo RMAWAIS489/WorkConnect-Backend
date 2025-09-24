@@ -11,7 +11,7 @@ const app = express();
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use(cors({
-    origin: "https://work-connect-gap1.vercel.app",
+    origin: "https://work-connect-gap1.vercel.app/",
     credentials: true
   }));
   app.use(bodyParser.json());
