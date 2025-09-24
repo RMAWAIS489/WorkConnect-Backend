@@ -1,5 +1,16 @@
+import "reflect-metadata";
+import dotenv from "dotenv";
+dotenv.config();
+import { AppDataSource } from "./database/data-source.js";
 import app from "./app.js";
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Local server running at http://localhost:${PORT}`);
+AppDataSource.initialize()
+    .then(() => {
+    console.log("Database connected successfully");
+    app.listen(PORT, () => {
+        console.log(`Local server running at http://localhost:${PORT}`);
+    });
+})
+    .catch((error) => {
+    console.log("Database connection error:", error);
 });
