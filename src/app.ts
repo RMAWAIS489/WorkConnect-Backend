@@ -17,7 +17,9 @@ app.use(cors({
   app.use(bodyParser.json());
 app.use(express.json());
 
-
+app.get("/", (req, res) => {
+  res.send("✅ Backend server is running!");
+});
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use("/users", userRoutes);
 app.use("/employer",employerRouter);
