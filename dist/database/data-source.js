@@ -1,9 +1,4 @@
 import { DataSource } from "typeorm";
-import { User } from "../entity/User.js";
-import { Candidate } from "../entity/candidate.js";
-import { Employer } from "../entity/Employers.js";
-import { Job } from "../entity/jobs.js";
-import { JobApplication } from "../entity/job_Application.js";
 const isProduction = process.env.NODE_ENV === "production";
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -13,9 +8,10 @@ export const AppDataSource = new DataSource({
     synchronize: false,
     logging: false,
     ssl: isProduction ? { rejectUnauthorized: false } : false,
+    // Use globs in production
     entities: isProduction
-        ? ["dist/entity/**/*.js"] // 🔑 Use compiled JS in production
-        : [User, Candidate, Employer, Job, JobApplication],
+        ? ["dist/entity/**/*.js"] // compiled JS files on Vercel
+        : ["src/entity/**/*.ts"], // TS files locally
     migrations: isProduction
         ? ["dist/migration/**/*.js"]
         : ["src/migration/**/*.ts"],
