@@ -22,5 +22,5 @@ AppDataSource.initialize()
     console.log("Database connection error:", error);
   });
 
-// Export app for Vercel
+
 export default app;
