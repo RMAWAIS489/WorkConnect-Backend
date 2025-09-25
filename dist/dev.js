@@ -7,10 +7,15 @@ const PORT = process.env.PORT || 5000;
 AppDataSource.initialize()
     .then(() => {
     console.log("Database connected successfully");
-    app.listen(PORT, () => {
-        console.log(`Local server running at http://localhost:${PORT}`);
-    });
+    // Only start server locally
+    if (process.env.VERCEL !== "1") {
+        app.listen(PORT, () => {
+            console.log(`Local server running at http://localhost:${PORT}`);
+        });
+    }
 })
     .catch((error) => {
     console.log("Database connection error:", error);
 });
+// Export app for Vercel
+export default app;
