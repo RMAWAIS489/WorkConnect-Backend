@@ -10,11 +10,20 @@ import { swaggerDocs, swaggerUi } from "./swagger.js";
 const app = express();
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+// app.use(cors({
+//     origin: ["http://localhost:3000",
+//     "work-connect-tau.vercel.app"],
+//     credentials: true
+//   }));
 app.use(cors({
-    origin: ["http://localhost:3000",
-    "work-connect-tau.vercel.app"],
-    credentials: true
-  }));
+  origin: [
+    "http://localhost:3000",
+    "https://work-connect-tau.vercel.app" // include https
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+}));
   app.use(bodyParser.json());
 app.use(express.json());
 
