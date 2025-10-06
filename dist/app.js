@@ -10,8 +10,8 @@ import { swaggerDocs, swaggerUi } from "./swagger.js";
 const app = express();
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use(cors({
-    origin: ["http://localhost:3000",
-        "work-connect-tau.vercel.app"],
+    origin: ["https://localhost:3000",
+        "https://workconnectfrontend.netlify.app/"],
     credentials: true
 }));
 app.use(bodyParser.json());

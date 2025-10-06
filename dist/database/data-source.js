@@ -1,11 +1,13 @@
 import { DataSource } from "typeorm";
+import dotenv from "dotenv";
+dotenv.config();
 export const AppDataSource = new DataSource({
     type: "postgres",
-    host: "database-1.cjosm4m8044d.eu-north-1.rds.amazonaws.com",
-    port: 5432,
-    username: "postgres",
-    password: "Awais!12345",
-    database: "postgres",
+    host: process.env.DB_HOST,
+    port: Number(process.env.DB_PORT),
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     synchronize: false,
     logging: false,
     ssl: { rejectUnauthorized: false },
