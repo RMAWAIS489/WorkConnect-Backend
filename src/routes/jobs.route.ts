@@ -172,7 +172,7 @@ router.put("/update/:jobId", authMiddleware, updateJobController);
  *         description: Job not found
  */
 router.delete("/delete/:jobId", authMiddleware, deleteJobController);
-router.get("/all/data",authMiddleware,fetchAllJobsbyFilteringController)
+router.get("/all/data",fetchAllJobsbyFilteringController)
 /**
  * @swagger
  * /jobs/update/employment-status/{jobId}:
