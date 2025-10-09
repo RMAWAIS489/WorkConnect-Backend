@@ -84,7 +84,7 @@ router.post("/create",authMiddleware,  createJobController);
  *       200:
  *         description: List of jobs
  */
-router.get("/all", authMiddleware, fetchAllJobsController);
+router.get("/all",fetchAllJobsController);
 
 /**
  * @swagger
